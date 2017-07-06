@@ -1,4 +1,4 @@
-package com.shamyang.smartrpc.proxy;
+package com.shamyang.smartrpc.client;
 
 import com.shamyang.smartrpc.server.RpcRequest;
 import com.shamyang.smartrpc.server.RpcResponse;
@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 /**
- * Created by PC on 2017/7/4.
+ * Created by shamyang on 2017/7/4.
  */
 public class Client {
 

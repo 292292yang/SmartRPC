@@ -1,5 +1,7 @@
 package com.shamyang.smartrpc.proxy;
 
+import com.shamyang.smartrpc.client.Client;
+import com.shamyang.smartrpc.client.RpcAnnotation;
 import com.shamyang.smartrpc.server.RpcRequest;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
@@ -17,6 +19,9 @@ public class RpcProxy{
             RpcRequest rpcRequest = new RpcRequest();
             rpcRequest.setRequestId(UUID.randomUUID().toString());
             rpcRequest.setMethodName(method.getName());
+            RpcAnnotation annotation = method.getAnnotation(RpcAnnotation.class);
+            String s = annotation.serviceName();
+            System.out.println("--------s-------"+s);
             rpcRequest.setInterfaces(clazz.getClass());
             return client.invoke(rpcRequest);
         };
