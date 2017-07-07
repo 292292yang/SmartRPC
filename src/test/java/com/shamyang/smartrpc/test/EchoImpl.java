@@ -5,7 +5,11 @@ package com.shamyang.smartrpc.test;
  */
 public class EchoImpl implements Echo{
     @Override
-    public void say(String name) {
+    public String say(String name) throws Exception {
         System.out.println("hello,"+name);
+        if("yangzhibin".equals(name)){
+            throw new Exception("eeeeee");
+        }
+        return "hello,"+name;
     }
 }

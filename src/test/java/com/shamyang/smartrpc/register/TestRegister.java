@@ -13,7 +13,7 @@ public class TestRegister {
         Register register=new Register();
         register.add("echo", EchoImpl.class);
 
-        Class echo = Register.get("echo");
+        Class echo = register.get("echo");
         Object obj=echo.newInstance();
         try {
             Method[] methods = echo.getMethods();

@@ -1,4 +1,4 @@
-package com.shamyang.smartrpc.server;
+package com.shamyang.smartrpc.common.bean;
 
 import java.io.Serializable;
 

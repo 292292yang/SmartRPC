@@ -1,4 +1,6 @@
-package com.shamyang.smartrpc.server;
+package com.shamyang.smartrpc.common.bean;
+
+import com.shamyang.smartrpc.common.bean.Methond;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -7,7 +9,7 @@ import java.util.Arrays;
  * Created by shamyang on 2017/7/4.
  * RPC请求封装
  */
-public class RpcRequest implements Serializable{
+public class RpcRequest implements Serializable {
 
     /**
      * 请求ID
@@ -17,17 +19,9 @@ public class RpcRequest implements Serializable{
     /**
      * 请求接口名
      */
-    private Class interfaces;
+    private String interfaces;
 
-    /**
-     * 请求方法名
-     */
-    private String methodName;
-
-    /**
-     * 参数类型
-     */
-    private Class<?>[] parameterTypes;
+    private Methond methond;
 
     /**
      * 参数
@@ -42,28 +36,20 @@ public class RpcRequest implements Serializable{
         this.requestId = requestId;
     }
 
-    public Class getInterfaces() {
+    public String getInterfaces() {
         return interfaces;
     }
 
-    public void setInterfaces(Class interfaces) {
+    public void setInterfaces(String interfaces) {
         this.interfaces = interfaces;
     }
 
-    public String getMethodName() {
-        return methodName;
+    public Methond getMethond() {
+        return methond;
     }
 
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
-    }
-
-    public Class<?>[] getParameterTypes() {
-        return parameterTypes;
-    }
-
-    public void setParameterTypes(Class<?>[] parameterTypes) {
-        this.parameterTypes = parameterTypes;
+    public void setMethond(Methond methond) {
+        this.methond = methond;
     }
 
     public Object[] getParameters() {
@@ -79,8 +65,7 @@ public class RpcRequest implements Serializable{
         return "RpcRequest{" +
                 "requestId='" + requestId + '\'' +
                 ", interfaces='" + interfaces + '\'' +
-                ", methodName='" + methodName + '\'' +
-                ", parameterTypes=" + Arrays.toString(parameterTypes) +
+                ", methond=" + methond +
                 ", parameters=" + Arrays.toString(parameters) +
                 '}';
     }

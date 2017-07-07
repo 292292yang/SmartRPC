@@ -1,9 +1,12 @@
 package com.shamyang.smartrpc.test;
 
+import com.shamyang.smartrpc.common.annotation.RpcAnnotation;
+
 /**
- * Created by PC on 2017/7/4.
+ * Created by shamyang on 2017/7/4.
  */
+@RpcAnnotation(serviceName = "echo")
 public interface Echo {
 
-    void say(String name);
+    String say(String name) throws Exception;
 }

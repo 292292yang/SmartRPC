@@ -9,13 +9,13 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Register {
 
-    private static final Map<String, Class> map = new ConcurrentHashMap<>();
+    private final Map<String, Class> map = new ConcurrentHashMap<>();
 
-    public static void add(String key, Class clazz) {
+    public  void add(String key, Class clazz) {
         map.put(key, clazz);
     }
 
-    public static Class get(String key){
+    public  Class get(String key){
         return map.get(key);
     }
 }
