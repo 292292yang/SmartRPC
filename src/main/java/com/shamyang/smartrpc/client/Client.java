@@ -33,7 +33,6 @@ public class Client {
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
             oos.writeObject(rpcRequest);
             oos.flush();
-            socket.shutdownOutput();
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
             RpcResponse rpcResponse = (RpcResponse) ois.readObject();
             return rpcResponse;

@@ -11,7 +11,7 @@ public class Test {
         Echo echo = RpcProxy.getProxy(Echo.class, "127.0.0.1", 9011);
         String result = null;
         try {
-            result = echo.say("yangzhibin");
+            result = echo.say("yangzhibin2");
         } catch (Exception e) {
             e.printStackTrace();
         }

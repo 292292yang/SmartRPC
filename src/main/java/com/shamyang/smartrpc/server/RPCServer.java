@@ -36,10 +36,10 @@ public class RPCServer {
         try {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("RPCServer启动服务失败,失败原因:", e);
         }
         while (true) {
-            Socket socket =null;
+            Socket socket = null;
             RpcResponse rpcResponse = new RpcResponse();
             try {
                 socket = serverSocket.accept();
@@ -62,9 +62,6 @@ public class RPCServer {
                     | InvocationTargetException e) {
                 rpcResponse.setException(e);
                 logger.error("RPCServer处理请求出错,错误信息:", e);
-            } catch (Exception e) {
-                rpcResponse.setException(e);
-                logger.error("RPCServer处理请求出错,错误信息:", e);
             } finally {
                 try {
                     oos.writeObject(rpcResponse);
@@ -75,14 +72,12 @@ public class RPCServer {
                     if (oos != null) {
                         oos.close();
                     }
-                    if(socket!=null){
+                    if (socket != null) {
                         socket.close();
                     }
                 } catch (IOException e) {
-                    rpcResponse.setException(e);
                     logger.error("RPCServer处理请求出错,错误信息:", e);
                 } catch (Exception e) {
-                    rpcResponse.setException(e);
                     logger.error("RPCServer处理请求出错,错误信息:", e);
                 }
             }
